@@ -17,7 +17,7 @@ class Speler
 	}
 
 	function setScore($score){
-		if ($this->getLastTwoThrows()[0] == 10 && $this->getLastTwoThrows[1] == 10) { // two strikers
+		if ($this->getLastTwoThrows() == [10, 10]) { // two strikers
 			$this->score = $this->score + $this->$lastTwoThrows()[0] + $this->getLastTwoThrows()[1] + ($score[0] + $score[1]) * 2;
 		} elseif($this->getLastTwoThrows()[0] == 10) { // one strike
 			$this->score = $this->score + ($score[0] + $score[1]) * 2;

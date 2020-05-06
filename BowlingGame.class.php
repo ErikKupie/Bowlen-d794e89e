@@ -26,7 +26,7 @@ class BowlingGame
 		} elseif ($newPlayer === "n" || $newPlayer === "no"){
 
 			echo "Great, lets begin! \n";
-			$this->scoreBoard->getCurrentPlayer();
+			$this->scoreBoard->registerCurrentPlayer();
 		} else {
 
 			echo"Not a valid answer, just say (y)es or (n)o! \n";

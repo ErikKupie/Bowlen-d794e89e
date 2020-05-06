@@ -8,9 +8,9 @@ class ScoreBoard {
 		$this->players[$player] = new Speler($player); 
 	} 
 
-	public function getCurrentPlayer() 
+	public function RegisterCurrentPlayer() 
 	{
-		for ($x = 0; $x <= 90; $x+=10) {
+		for ($x = 0; $x <= 9; $x+=1) {
 			foreach($this->players as $player){
 				$this->registerPinsDown($player);
 				var_dump($player);
