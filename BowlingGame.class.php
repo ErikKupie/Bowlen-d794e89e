@@ -13,24 +13,26 @@ class BowlingGame
 
 	public function start() 
 	{
-		$name = strtolower(readline("what is your name? "));
-		$this->scoreBoard->addPlayer($name);
-		$this->otherPlayer();
-	}
+		$ready = true;
+		$readyNewPlayer = true;
+		while($ready == true){
+			$name = strtolower(readline("what is your name? "));
+			$this->scoreBoard->addPlayer($name);
 
-	private function otherPlayer()
-	{
-		$newPlayer = strtolower(readline("Is there an other player? "));
-		if ($newPlayer === "y" || $newPlayer === "yes"){
-			$this->start();
-		} elseif ($newPlayer === "n" || $newPlayer === "no"){
-
-			echo "Great, lets begin! \n";
-			$this->scoreBoard->registerCurrentPlayer();
-		} else {
-
-			echo"Not a valid answer, just say (y)es or (n)o! \n";
-			$this->otherPlayer();
+			while ($readyNewPlayer == true){
+				$newPlayer = strtolower(readline("Is there an other player? "));
+				if ($newPlayer === "y" || $newPlayer === "yes"){
+					$ready = true;
+					$readyNewPlayer = false;
+				} elseif ($newPlayer === "n" || $newPlayer === "no"){
+					echo "Great, lets begin! \n";
+					$ready = false;
+					$this->scoreBoard->registerCurrentPlayer();
+				} else {
+					echo"Not a valid answer, just say (y)es or (n)o! \n";
+					$readyNewPlayer = true;
+				}
+			}
 		}
 	}
 }
